@@ -6,7 +6,7 @@ const Header = () => {
         sessionStorage.removeItem('token')
         localStorage.clear('token')
     }
-    
+    const token=localStorage.getItem("token")
   return (
     <div>
         <header className='navbar'>
@@ -19,9 +19,7 @@ const Header = () => {
                     <li className='link'>
                         <Link to="/new">new</Link>
                     </li>
-                    {/* <li className='link'>
-                        <Link to="/entri">Entri_news</Link>
-                    </li> */}
+                 
                     <li className='link'>
                         <Link to="/treanding">treanding</Link>
                     </li>
@@ -34,9 +32,14 @@ const Header = () => {
                     <li className='link'>
                         <Link to="/login">Login</Link>
                     </li>
-                    <li className='link'>
-                        <Link to="/" onClick={tokenRelease}>LogOut</Link>
-                    </li>
+                    {token?
+                      <li className='link'>
+                        
+                      <Link to="/" onClick={tokenRelease}>LogOut</Link>
+                  </li>
+                  :null
+                    }
+                  
                 </ul>
             </nav>
         </header>

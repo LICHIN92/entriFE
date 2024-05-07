@@ -9,6 +9,7 @@ const Login = () => {
         password: ''
     })
     const navigate = useNavigate()
+    const token=localStorage.getItem('token')
     const handlechange = (e) => {
         const { name, value } = e.target
         SetFormData({ ...formdata, [name]: value })
@@ -28,6 +29,7 @@ const Login = () => {
         }
     }
     return (
+        
         <div className='container'>
             <h2 className='title'>Log in</h2>
 

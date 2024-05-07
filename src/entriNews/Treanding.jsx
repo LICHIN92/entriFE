@@ -1,9 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const Treanding = () => {
     const [countries, setCountries] = useState([]);
+    const token=localStorage.getItem("token")
 
     useEffect(() => {
         fetch('https://restcountries.com/v2/all')
@@ -15,6 +16,7 @@ const Treanding = () => {
     }, []);
 
     return (
+        token?
         <div className='grid-container'>
             {countries.map((country, index) => (
                 <div key={country.name} className='cardd'>
@@ -32,6 +34,8 @@ const Treanding = () => {
                 </div>
             ))}
         </div>
+        : <Navigate to='/login'/>
+
     );
 };
 

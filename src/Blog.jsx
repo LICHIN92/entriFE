@@ -56,11 +56,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './Blog.css'
+import { Navigate } from 'react-router-dom';
 
 const Blog = () => {
 
     const [posts, setPosts] = useState([]);
-   
+   const token=localStorage.getItem("token")
     useEffect(() => {
         const fetchData = async (req, res) => {
             try {
@@ -84,6 +85,7 @@ const Blog = () => {
 
     // }
      return (
+        token?
         <div className='gridContainer'>
             {posts.map((post, index) => (
                 <div className='card' key={index}
@@ -105,6 +107,8 @@ const Blog = () => {
                 </div>
             ))}
         </div>
+        :
+        <Navigate to='/login'/>
     )
 }
 export default Blog
