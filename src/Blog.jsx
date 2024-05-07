@@ -64,7 +64,7 @@ const Blog = () => {
     useEffect(() => {
         const fetchData = async (req, res) => {
             try {
-                const posts = await axios.get('https://ee-dice.onrender.com')
+                const posts = await axios.get('https://ee-dice.onrender.com/post')
                 setPosts(posts.data)
 
             } catch (error) {
@@ -73,22 +73,25 @@ const Blog = () => {
         }
         fetchData()
     }, [])
-    const handlePostDetail=(postId)=>{
-        console.log(postId);
-        axios.get('https://ee-dice.onrender.com/post/getdetail/${postId}')
-        .then(res=>{
-            console.log(res);
-        }).catch(err=>{
-            console.log(err);
-        })
+    // const handlePostDetail=(postId)=>{
+    //     console.log(postId);
+    //     axios.get('https://ee-dice.onrender.com/post/getdetail/${postId}')
+    //     .then(res=>{
+    //         console.log(res);
+    //     }).catch(err=>{
+    //         console.log(err);
+    //     })
 
-    }
+    // }
      return (
         <div className='gridContainer'>
             {posts.map((post, index) => (
-                <div className='card' key={index} onClick={()=>handlePostDetail(post._id)}>
+                <div className='card' key={index}
+                //  onClick={()=>handlePostDetail(post._id)}
+                >
                     <div className="card-image">
                         {console.log(post.image)}
+                        {console.log(post)}
                         {console.log(post._id)}
                         <img className='blogImage'
                             key={index}

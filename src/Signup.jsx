@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './Signup.css'
 import axios from 'axios'
-// import axios from 'ax'
+import { useNavigate } from 'react-router-dom'
 const Signup = () => {
   const [formdata, SetFormData] = useState({
     name: '',
@@ -11,18 +11,21 @@ const Signup = () => {
     confirmPassword: "",
     email: ''
   })
-
+  const navigate = useNavigate()
   const handlechange = (e) => {
     const { name, value } = e.target
     SetFormData({ ...formdata, [name]: value })
   }
-  const handlesubmit =async (e) => {
+  const handlesubmit = async (e) => {
     e.preventDefault()
     try {
-    const respo=await axios.post('https://ee-dice.onrender.com',formdata)
-   
+      const respo = await axios.post('https://ee-dice.onrender.com', formdata)
 
+      alert("succesfully signed")
       console.log(respo.data);
+      navigate('/login')
+
+
     } catch (error) {
       console.log(error);
     }
