@@ -64,7 +64,7 @@ const Blog = () => {
     useEffect(() => {
         const fetchData = async (req, res) => {
             try {
-                const posts = await axios.get('https://serverdeploy-2nxa.onrender.com/post')
+                const posts = await axios.get('https://ee-dice.onrender.com')
                 setPosts(posts.data)
 
             } catch (error) {
@@ -75,7 +75,7 @@ const Blog = () => {
     }, [])
     const handlePostDetail=(postId)=>{
         console.log(postId);
-        axios.get('https://serverdeploy-2nxa.onrender.com/post/getdetail/${postId}')
+        axios.get('https://ee-dice.onrender.com/post/getdetail/${postId}')
         .then(res=>{
             console.log(res);
         }).catch(err=>{
@@ -92,7 +92,7 @@ const Blog = () => {
                         {console.log(post._id)}
                         <img className='blogImage'
                             key={index}
-                            src={`https://serverdeploy-2nxa.onrender.com/${post.image}`}
+                            src={`https://ee-dice.onrender.com/${post.image}`}
                         />
                     </div>
                     <div className="card-content">

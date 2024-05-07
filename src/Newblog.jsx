@@ -31,7 +31,7 @@ const Newblog = () => {
       const token=sessionStorage.getItem('token')
       console.log(token);
       if(token){
-        const response = await axios.post('https://serverdeploy-2nxa.onrender.com/post', formData, {
+        const response = await axios.post('https://ee-dice.onrender.com/post', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'Authorization':`Bearer ${token}`

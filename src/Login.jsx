@@ -16,7 +16,7 @@ const Login = () => {
     const handlesubmit = async (e) => {
         e.preventDefault()
         try {
-            const respo = await axios.post('https://serverdeploy-2nxa.onrender.com/login', formdata)
+            const respo = await axios.post('https://ee-dice.onrender.com/login', formdata)
             console.log(respo);
             alert(respo.data.message)
             sessionStorage.setItem('token', respo.data.token)

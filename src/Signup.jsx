@@ -19,7 +19,7 @@ const Signup = () => {
   const handlesubmit =async (e) => {
     e.preventDefault()
     try {
-    const respo=await axios.post('https://serverdeploy-2nxa.onrender.com',formdata)
+    const respo=await axios.post('https://ee-dice.onrender.com',formdata)
    
 
       console.log(respo.data);
